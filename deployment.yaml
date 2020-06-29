@@ -48,4 +48,4 @@ spec:
       - path: /app
         backend:
           serviceName: camunda-service
-          servicePort: 80
+          servicePort: 8080
