@@ -26,13 +26,12 @@ kind: Service
 metadata:
     name: camunda-service
 spec:
-    type: NodePort
+    type: LoadBalancer
     selector:
         app: camunda
     ports:
     - port: 8080
       targetPort: 8080
-      nodePort: 30001
       name: http
       protocol: TCP
 ---
