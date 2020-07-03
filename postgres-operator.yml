@@ -206,13 +206,13 @@ spec:
                   - name: SCHEDULER_TIMEOUT
                     value: "3600"
                   - name: BACKREST_STORAGE
-                    value: "manualstorage"
+                    value: "manualos"
                   - name: BACKUP_STORAGE
-                    value: "manualstorage"
+                    value: "manualos"
                   - name: PRIMARY_STORAGE
-                    value: "manualstorage"
+                    value: "manualos"
                   - name: REPLICA_STORAGE
-                    value: "manualstorage"
+                    value: "manualos"
                   - name: WAL_STORAGE
                     value: ""
                   - name: STORAGE1_NAME
@@ -223,6 +223,8 @@ spec:
                     value: "1G"
                   - name: STORAGE1_TYPE
                     value: "create"
+                  - name: STORAGE1_CLASS
+                    value: "manualk8s"
                   - name: STORAGE2_NAME
                     value: "replicastorage"
                   - name: STORAGE2_ACCESS_MODE
@@ -254,15 +256,15 @@ spec:
                   - name: STORAGE4_SUPPLEMENTAL_GROUPS
                     value: "65534"
                   - name: STORAGE5_NAME
-                    value: "storageos"
+                    value: "manualos"
                   - name: STORAGE5_ACCESS_MODE
-                    value: "ReadWriteOnce"
+                    value: "ReadWriteMany"
                   - name: STORAGE5_SIZE
-                    value: "5Gi"
+                    value: "1G"
                   - name: STORAGE5_TYPE
                     value: "dynamic"
                   - name: STORAGE5_CLASS
-                    value: "fast"
+                    value: "manualk8s"
                   - name: STORAGE6_NAME
                     value: "primarysite"
                   - name: STORAGE6_ACCESS_MODE
@@ -312,4 +314,4 @@ spec:
                   - name: STORAGE10_TYPE
                     value: "create"
                   - name: STORAGE10_CLASS
-                    value: "manual"
+                    value: "manualk8s"
