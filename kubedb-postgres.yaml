@@ -1,0 +1,16 @@
+apiVersion: kubedb.com/v1alpha1
+kind: Postgres
+metadata:
+  name: quick-postgres
+  namespace: kubedb
+spec:
+  version: "11.2"
+  storageType: Filesystem
+  storage:
+    storageClassName: "manualk8s"
+    accessModes:
+    - ReadWriteMany
+    resources:
+      requests:
+        storage: 1Gi
+  terminationPolicy: DoNotTerminate
