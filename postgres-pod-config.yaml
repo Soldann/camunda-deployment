@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-pod-config
+  namespace: default
+data:
+  NO_SSL: "true"
