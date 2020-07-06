@@ -17,7 +17,19 @@ spec:
     spec:
       containers:
         - name: camunda-container
-          image: camunda/camunda-bpm-platform:latest
+          image: soldann/camunda-docker:latest
+          env:
+            - name: DB_USERNAME
+              value: zalando
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: zalando.acid-minimal-cluster.credentials
+                  key: password
+            - name: DB_DRIVER
+              value: org.postgresql.Driver
+            - name: DB_URL
+              value: jdbc:postgresql://acid-minimal-cluster.default.svc.cluster.local/postgres
           ports:
             - containerPort: 8080
 ---
