@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: postgres-pod-config
+  name: camunda-db-pod-config
   namespace: default
 data:
   ALLOW_NOSSL: "true"
