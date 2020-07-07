@@ -5,9 +5,6 @@ nginx deployment modified from https://raw.githubusercontent.com/kubernetes/ingr
 
 MetalLB version 0.9.3, merged from https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml, https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml
 
-Run this command on first install only:
-- kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
-
 ## How to deploy
 
 ### If installing on kind:
@@ -21,7 +18,10 @@ This creates a cluster with one master and two worker nodes
 kubectl apply -f metallb-configMap.yaml
 kubectl apply -f metallb-deploy.yaml
 ```
-This deploys the MetalLB load balancer
+This deploys the MetalLB load balancer. On the first install, run the following command as well:
+```
+kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
+```
 
 ### Deploy nginx ingress
 ```
