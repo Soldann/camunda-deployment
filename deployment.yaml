@@ -20,16 +20,16 @@ spec:
           image: soldann/camunda-docker:latest
           env:
             - name: DB_USERNAME
-              value: postgres
+              value: camunda
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres.acid-minimal-cluster.credentials
+                  name: camunda.camunda-db.credentials
                   key: password
             - name: DB_DRIVER
               value: org.postgresql.Driver
             - name: DB_URL
-              value: jdbc:postgresql://acid-minimal-cluster.default.svc.cluster.local/postgres
+              value: jdbc:postgresql://camunda-db.default.svc.cluster.local/process_engine
           ports:
             - containerPort: 8080
 ---

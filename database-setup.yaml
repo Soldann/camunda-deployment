@@ -1,7 +1,7 @@
 apiVersion: "acid.zalan.do/v1"
 kind: postgresql
 metadata:
-  name: camunda-cluster
+  name: camunda-db
   namespace: default
 spec:
   teamId: "camunda"
@@ -9,13 +9,13 @@ spec:
     size: 1Gi
   numberOfInstances: 2
   users:
-    zalando:  # database owner
+    camunda:  # database owner
     - superuser
     - createdb
-    foo_user: []  # role for application foo
+      #foo_user: []  # role for application foo
   databases:
-    foo: zalando  # dbname: owner
-  preparedDatabases:
-    bar: {}
+    process_engine: camunda  # dbname: owner
+    #preparedDatabases:
+          # bar: {}
   postgresql:
     version: "12"
