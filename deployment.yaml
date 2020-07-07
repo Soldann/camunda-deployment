@@ -20,11 +20,11 @@ spec:
           image: soldann/camunda-docker:latest
           env:
             - name: DB_USERNAME
-              value: zalando
+              value: postgres
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: zalando.acid-minimal-cluster.credentials
+                  name: postgres.acid-minimal-cluster.credentials
                   key: password
             - name: DB_DRIVER
               value: org.postgresql.Driver
