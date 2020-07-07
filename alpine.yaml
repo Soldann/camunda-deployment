@@ -11,7 +11,7 @@ spec:
      - name: DB_PASSWORD
        valueFrom:
          secretKeyRef:
-            name: zalando.acid-minimal-cluster.credentials
+            name: camunda.camunda-db.credentials
             key: password
     image: alpine
     stdin: true
