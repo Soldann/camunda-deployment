@@ -4,4 +4,4 @@ metadata:
   name: postgres-pod-config
   namespace: default
 data:
-  NO_SSL: "true"
+  ALLOW_NOSSL: "true"
