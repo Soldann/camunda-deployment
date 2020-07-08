@@ -14,14 +14,14 @@ kind create cluster --config config.yaml
 This creates a cluster with one master and two worker nodes
 
 ### Deploy MetalLB
+The following deploys the MetalLB load balancer.
+```
+kubectl apply -f metallb-deploy.yaml
+kubectl apply -f metallb-configMap.yaml
+```
 On the first install, run the following command:
 ```
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
-```
-Now deploy the MetalLB load balancer.
-```
-kubectl apply -f metallb-configMap.yaml
-kubectl apply -f metallb-deploy.yaml
 ```
 ### Deploy nginx ingress
 ```
