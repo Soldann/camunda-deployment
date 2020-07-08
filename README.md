@@ -17,7 +17,7 @@ This creates a cluster with one master and two worker nodes
 The following deploys the MetalLB load balancer.
 ```
 kubectl apply -f metallb-deploy.yaml
-kubectl apply -f metallb-configMap.yaml
+kubectl apply -f metallb-configmap.yaml
 ```
 On the first install, run the following command:
 ```
