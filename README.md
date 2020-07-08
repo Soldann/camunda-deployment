@@ -42,6 +42,7 @@ kubectl apply -f database-setup.yaml
 ```
 
 ### Deploy Camunda
+Wait for the database pods to finish deploying before starting applying Camunda.
 ```
 kubectl apply -f deployment.yaml
 ```
