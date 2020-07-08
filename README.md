@@ -17,7 +17,7 @@ This creates a cluster with one master and two worker nodes
 The following deploys the MetalLB load balancer.
 ```
 kubectl apply -f metallb-deploy.yaml
-kubectl apply -f metallb-configmap.yaml
+kubectl apply -f metallb-configMap.yaml
 ```
 On the first install, run the following command:
 ```
@@ -31,7 +31,7 @@ This deploys nginx-ingress
 
 ### Deploy Postgresql and the operator
 ```
-kubectl apply -f postgres-operator-configMap.yaml
+kubectl apply -f postgres-operator-configmap.yaml
 kubectl apply -f postgres-pod-config.yaml
 kubectl apply -f postgres-operator/manifests/operator-service-account-rbac.yaml
 kubectl apply -f postgres-operator/manifests/postgres-operator.yaml
