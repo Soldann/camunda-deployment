@@ -30,6 +30,10 @@ spec:
               value: org.postgresql.Driver
             - name: DB_URL
               value: jdbc:postgresql://camunda-db.default.svc.cluster.local/process_engine
+            - name: WAIT_FOR
+              value: camunda-db.default.svc.cluster.local:5432
+            - name: WAIT_FOR_TIMEOUT
+              value: "120"
           ports:
             - containerPort: 8080
 ---
