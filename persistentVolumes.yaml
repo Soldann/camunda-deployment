@@ -1,0 +1,41 @@
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: manualk8s
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: postgres-pv
+  labels:
+    application: spilo
+    cluster-name: camunda-db
+spec:
+  storageClassName: manualk8s 
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/home/ubuntu/camunda/"
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: postgres-pv-2
+  labels:
+    application: spilo
+    cluster-name: camunda-db
+spec:
+  storageClassName: manualk8s
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/home/ubuntu/camunda2/"
