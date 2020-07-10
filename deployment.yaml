@@ -36,6 +36,13 @@ spec:
               value: "120"
           ports:
             - containerPort: 8080
+          volumeMounts:
+            - name: bpm-platform
+              mountPath: /camunda/conf/bpm-platform.xml
+      volumes:
+        - name: bpm-platform
+          hostPath: 
+            path: /home/administrator/bpm-platform.xml
 ---
 apiVersion: v1
 kind: Service
