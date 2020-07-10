@@ -8,7 +8,7 @@ spec:
   containers:
   - name: alpine
     env:
-     - name: DB_PASSWORD
+     - name: PGPASSWORD
        valueFrom:
          secretKeyRef:
             name: camunda.camunda-db.credentials
