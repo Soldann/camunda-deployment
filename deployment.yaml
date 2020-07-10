@@ -55,6 +55,10 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: ingress
+  annotations:
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-expires: "28800"
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "28800"
 spec:
   rules:
   - http:
