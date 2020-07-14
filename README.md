@@ -42,6 +42,16 @@ kubectl apply -f database-setup.yaml
 ```
 
 ### Deploy Camunda
+If Kubernetes does not have a default storageclass with provisioner configured, either apply the manual persistent volumes:
+```
+kubectl apply -f persistentVolumes.yaml
+```
+OR use a provisioner like https://github.com/rancher/local-path-provisioner
+```
+kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+```
+
 Wait for the database pods to finish deploying before starting applying Camunda.
 ```
 kubectl apply -f deployment.yaml
