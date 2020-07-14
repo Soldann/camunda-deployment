@@ -36,12 +36,7 @@ kubectl apply -f postgres-pod-config.yaml
 kubectl apply -f postgres-operator/manifests/operator-service-account-rbac.yaml
 kubectl apply -f postgres-operator/manifests/postgres-operator.yaml
 ```
-Wait for the postgres-operator pod to finish deploying, then run the following to create the databases
-```yaml
-kubectl apply -f database-setup.yaml
-```
 
-### Deploy Camunda
 If Kubernetes does not have a default storageclass with provisioner configured, either apply the manual persistent volumes:
 ```
 kubectl apply -f persistentVolumes.yaml
@@ -52,6 +47,12 @@ kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisione
 kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```
 
+Wait for the postgres-operator pod to finish deploying, then run the following to create the databases
+```yaml
+kubectl apply -f database-setup.yaml
+```
+
+### Deploy Camunda
 Wait for the database pods to finish deploying before starting applying Camunda.
 ```
 kubectl apply -f deployment.yaml
