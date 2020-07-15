@@ -66,3 +66,14 @@ kubectl exec -it alpine -- sh #enter pod
 apk add postgresql-client #download psql client
 psql -h camunda-db.default.svc.cluster.local -U camunda -d process_engine
 ```
+If all else fails, reset the cluster using the following on each node:
+```
+kubeadm reset
+rm -rf ~/.kube
+rm -rf /etc/cni /etc/kubernetes /var/lib/dockershim /var/lib/etcd /var/lib/kubelet /var/run/kubernetes ~/.kube/*
+iptables -F && iptables -X
+iptables -t nat -F && iptables -t nat -X
+iptables -t mangle -F && iptables -t mangle -X
+systemctl restart docker
+reboot
+```
