@@ -64,6 +64,5 @@ You can debug with the included alpine pod:
 kubectl apply -f alpine.yaml
 kubectl exec -it alpine -- sh #enter pod
 apk add postgresql-client #download psql client
-export PGPASSWORD=$DB_PASSWORD #set password for psql
 psql -h camunda-db.default.svc.cluster.local -U camunda -d process_engine
 ```
